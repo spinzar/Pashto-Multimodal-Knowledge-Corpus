@@ -1,252 +1,181 @@
-I like the idea of thinking beyond a "Twitter archive." If the goal is a **Pashto Multimodal Knowledge Corpus (PMKC)**, then Twitter becomes just **one source**. Later you can add YouTube, Facebook (where permitted), news websites, books, interviews, OCR documents, and speech data without changing the overall architecture.
+# Pashto Multimodal Knowledge Corpus (PMKC)
 
-A research corpus rather than a social media dump.
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+![Status](https://img.shields.io/badge/status-active-success)
+![Language](https://img.shields.io/badge/language-Pashto-green)
+
+The **Pashto Multimodal Knowledge Corpus (PMKC)** is an open-source initiative to build a large-scale, high-quality multimodal corpus for the Pashto language.
+
+PMKC combines text, images, videos, audio, metadata, and structured knowledge into a unified research corpus for AI, NLP, computer vision, digital humanities, and language preservation.
+
+---
+
+## Vision
+
+To create one of the world's largest open multimodal resources for the Pashto language.
+
+The project aims to support:
+
+- Large Language Models (LLMs)
+- Vision-Language Models (VLMs)
+- Retrieval-Augmented Generation (RAG)
+- OCR
+- Machine Translation
+- Speech Recognition
+- Knowledge Graphs
+- Digital Archives
+- Computational Linguistics
+- Cultural Preservation
+
+---
+
+## Features
+
+- Multimodal corpus
+- Native Pashto support
+- JSONL datasets
+- Image-text alignment
+- Metadata preservation
+- Knowledge graph generation
+- Semantic search
+- Embedding generation
+- AI-ready datasets
+- Research-friendly architecture
+
+---
+
+## Repository Structure
 
 ```text
 Pashto-Multimodal-Knowledge-Corpus/
-│
-├── README.md
-├── LICENSE
-├── CITATION.cff
-├── VERSION
-├── CHANGELOG.md
-│
+
 ├── docs/
-│   ├── architecture.md
-│   ├── data_model.md
-│   ├── annotation_guidelines.md
-│   ├── metadata_schema.md
-│   ├── quality_control.md
-│   ├── corpus_statistics.md
-│   └── roadmap.md
-│
 ├── schemas/
-│   ├── tweet.schema.json
-│   ├── image.schema.json
-│   ├── video.schema.json
-│   ├── document.schema.json
-│   ├── audio.schema.json
-│   ├── conversation.schema.json
-│   └── knowledge_record.schema.json
-│
 ├── sources/
-│   ├── twitter/
-│   ├── youtube/
-│   ├── news/
-│   ├── wikipedia/
-│   ├── books/
-│   ├── blogs/
-│   ├── government/
-│   ├── humanitarian/
-│   └── custom/
-│
 ├── corpus/
-│   │
-│   ├── raw/
-│   │
-│   ├── normalized/
-│   │
-│   ├── enriched/
-│   │
-│   ├── multilingual/
-│   │
-│   └── final/
-│
 ├── media/
-│   ├── images/
-│   ├── videos/
-│   ├── audio/
-│   ├── thumbnails/
-│   └── documents/
-│
 ├── metadata/
-│   ├── authors/
-│   ├── locations/
-│   ├── hashtags/
-│   ├── organizations/
-│   ├── events/
-│   ├── languages/
-│   └── topics/
-│
-├── knowledge/
-│   ├── entities/
-│   ├── relations/
-│   ├── timelines/
-│   ├── claims/
-│   ├── evidence/
-│   └── knowledge_graph/
-│
 ├── annotations/
-│   ├── image_caption/
-│   ├── object_detection/
-│   ├── ocr/
-│   ├── translation/
-│   ├── summarization/
-│   ├── sentiment/
-│   ├── stance/
-│   ├── misinformation/
-│   ├── geopolitics/
-│   └── human_review/
-│
 ├── embeddings/
-│   ├── text/
-│   ├── image/
-│   ├── audio/
-│   ├── multimodal/
-│   └── indexes/
-│
+├── knowledge/
 ├── datasets/
-│   ├── train/
-│   ├── validation/
-│   ├── test/
-│   ├── instruction/
-│   ├── vision_language/
-│   ├── retrieval/
-│   └── benchmark/
-│
 ├── database/
-│   ├── sqlite/
-│   ├── duckdb/
-│   ├── parquet/
-│   ├── jsonl/
-│   └── vector_db/
-│
 ├── api/
-│   ├── search/
-│   ├── retrieval/
-│   ├── rag/
-│   ├── corpus_api/
-│   └── web/
-│
 ├── tools/
-│   ├── collectors/
-│   ├── converters/
-│   ├── validators/
-│   ├── deduplication/
-│   ├── enrichment/
-│   ├── exporters/
-│   └── statistics/
-│
-├── experiments/
-│
-└── models/
-    ├── checkpoints/
-    ├── adapters/
-    ├── prompts/
-    └── evaluation/
+├── models/
+├── LICENSE
+├── DATA_LICENSE.md
+├── NOTICE
+└── README.md
 ```
 
 ---
 
-# Recommended Knowledge Record
+## Data Sources
 
-Every piece of information should eventually become one independent record.
+Examples include:
 
-```text
-knowledge_record
-│
-├── id
-├── source
-├── language
-├── created_at
-├── collected_at
-│
-├── author
-├── organization
-├── location
-│
-├── text
-├── translation
-├── summary
-│
-├── images[]
-├── videos[]
-├── audio[]
-├── documents[]
-│
-├── hashtags[]
-├── urls[]
-├── mentions[]
-│
-├── entities[]
-├── events[]
-├── topics[]
-│
-├── image_captions[]
-├── ocr_text[]
-│
-├── embeddings
-│
-├── relationships
-│
-├── verification
-│
-└── licenses
+- Twitter/X archives
+- News articles
+- Public government publications
+- Wikipedia
+- Open datasets
+- Human annotations
+- OCR collections
+- Audio corpora
+- Historical documents
+
+Only content that may legally be redistributed is included directly.
+Other sources may be represented through metadata, IDs, or links.
+
+---
+
+## Knowledge Record
+
+Each record contains structured multimodal information.
+
+Example:
+
+```json
+{
+  "id": "...",
+  "source": "twitter",
+  "language": "ps",
+  "text": "...",
+  "created_at": "...",
+  "images": [],
+  "videos": [],
+  "hashtags": [],
+  "entities": [],
+  "topics": [],
+  "metadata": {}
+}
 ```
 
 ---
 
-# Twitter Source Layout
+## Applications
 
-For Twitter specifically:
-
-```text
-sources/
-└── twitter/
-    ├── users/
-    │   ├── user1/
-    │   ├── user2/
-    │   └── ...
-    │
-    ├── tweets/
-    │   ├── raw_jsonl/
-    │   ├── normalized/
-    │   └── enriched/
-    │
-    ├── media/
-    │   ├── images/
-    │   ├── videos/
-    │   └── thumbnails/
-    │
-    ├── conversations/
-    │
-    ├── quoted/
-    │
-    ├── replies/
-    │
-    └── indexes/
-```
+- Pashto LLM Training
+- Multimodal AI
+- Retrieval Systems
+- Historical Research
+- Social Science
+- Machine Translation
+- OCR
+- Semantic Search
+- Vision-Language Learning
 
 ---
 
-# Long-Term Vision
+## Roadmap
 
-Instead of treating a tweet as "text + image," treat it as a **knowledge object**:
+- Twitter corpus
+- Image-text linking
+- OCR integration
+- Audio corpus
+- Knowledge graph
+- Search engine
+- Web API
+- Dataset releases
+- Benchmark suite
 
-```
-Knowledge Object
+---
 
-            Text
-              │
-              │
- Image ───────┼────── Metadata
-              │
-              │
-     Time ────┼──── Author
-              │
-              │
- Conversation │
-              │
-         Entities
-              │
-              │
-       Knowledge Graph
-              │
-              │
-       Embeddings
-              │
-              │
-          AI Retrieval
-```
+## Contributing
 
-This design is scalable from thousands to tens of millions of records and is suitable for retrieval systems, multimodal model training, digital humanities research, and long-term preservation. It also aligns well with your broader work on Pashto language resources, making the corpus a central foundation that other datasets (dictionary, translation, OCR, speech, and instruction tuning) can connect to rather than remain isolated projects.
+Contributions are welcome.
+
+You can help by:
+
+- collecting data
+- improving annotations
+- fixing metadata
+- writing documentation
+- improving tools
+- reporting issues
+
+---
+
+## Citation
+
+Coming soon.
+
+---
+
+## License
+
+The software is licensed under the Apache License 2.0.
+
+See:
+
+- LICENSE
+- DATA_LICENSE.md
+
+---
+
+## Acknowledgements
+
+This project exists to advance open research, preserve the Pashto language, and enable future generations of AI systems to better understand Pashto culture, history, and knowledge.
+
+---
